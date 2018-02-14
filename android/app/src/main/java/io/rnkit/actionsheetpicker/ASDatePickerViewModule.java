@@ -101,16 +101,16 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
                     public void onTimeSelect(Date date, View v) {
                         SimpleDateFormat format = null;
                         if (datePickerMode==null){
-                            format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+                            format = new SimpleDateFormat("yyyy-MM-dd");
                         } else if (datePickerMode.equals("date")) {
-                            format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+                            format = new SimpleDateFormat("yyyy-MM-dd");
                         } else if (datePickerMode.equals("time")) {
-                            format = new SimpleDateFormat("HH:mm:ss", Locale.CHINA);
+                            format = new SimpleDateFormat("HH:mm:ss");
                         } else if (datePickerMode.equals("dateTime")) {
-                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         }
 
-                        format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+//                        format.setTimeZone(TimeZone.getTimeZone("UTC"));
 
                         WritableMap map = Arguments.createMap();
                         map.putString("type", "done");
@@ -195,7 +195,7 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
 
         if (options.hasKey(SELECTED_DATE) && !options.isNull(SELECTED_DATE)) {
             try {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
                 Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+08"));
                 calendar.setTime(format.parse(options.getString(SELECTED_DATE)));
@@ -207,7 +207,7 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
 
         if (options.hasKey(MINIMUM_DATE) && !options.isNull(MINIMUM_DATE)) {
             try {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy", Locale.CHINA);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy");
                 format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
                 Date date = format.parse(options.getString(MINIMUM_DATE));
                 startDate = Calendar.getInstance(TimeZone.getTimeZone("GMT+08"));
@@ -219,7 +219,7 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
 
         if (options.hasKey(MAXIMUM_DATE) && !options.isNull(MAXIMUM_DATE)) {
             try {
-                SimpleDateFormat format = new SimpleDateFormat("yyyy", Locale.CHINA);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy");
                 format.setTimeZone(TimeZone.getTimeZone("GMT+08"));
                 Date date = format.parse(options.getString(MAXIMUM_DATE));
                 endDate = Calendar.getInstance(TimeZone.getTimeZone("GMT+08"));
@@ -334,3 +334,4 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
 
     }
 }
+
