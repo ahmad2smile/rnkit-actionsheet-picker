@@ -101,11 +101,11 @@ public class ASDatePickerViewModule extends ReactContextBaseJavaModule implement
                     public void onTimeSelect(Date date, View v) {
                         SimpleDateFormat format = null;
                         if (datePickerMode==null){
-                            format = new SimpleDateFormat("yyyy-MM-dd");
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         } else if (datePickerMode.equals("date")) {
-                            format = new SimpleDateFormat("yyyy-MM-dd");
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         } else if (datePickerMode.equals("time")) {
-                            format = new SimpleDateFormat("HH:mm:ss");
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         } else if (datePickerMode.equals("dateTime")) {
                             format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         }
