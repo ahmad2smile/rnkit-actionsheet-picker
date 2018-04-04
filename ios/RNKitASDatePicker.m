@@ -181,11 +181,11 @@ RCT_EXPORT_METHOD(showWithArgs:(NSDictionary *)args callback:(RCTResponseSenderB
         }
         switch (mode) {
             case UIDatePickerModeDate: {
-                formatter.dateFormat = @"yyyy-MM-dd";
+                formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
             }
                 break;
             case UIDatePickerModeTime: {
-                formatter.dateFormat = @"HH:mm:ss";
+                formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
             }
                 break;
             case UIDatePickerModeDateAndTime: {
